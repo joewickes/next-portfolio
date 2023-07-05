@@ -38,7 +38,7 @@ const Context = ({ children }: { children?: ReactNode }) => {
         },
       }).then((result) => {
         const experiencesArray = result?.data?.data?.experiences?.data
-          .sort((a, b) => a.id > b.id)
+          .sort((a: any, b: any) => a.id > b.id)
           .map((experience: any) => {
             return {
               experienceId: experience?.id,
