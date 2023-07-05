@@ -17,7 +17,6 @@ const Project = ({
   projectGifAlt,
   projectGifUrl,
 }: ProjectItemType) => {
-  console.log(projectDescription?.includes('\n'));
   return (
     <>
       <div>

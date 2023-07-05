@@ -1,6 +1,7 @@
 'use client';
 import { createContext, useState, ReactNode, useEffect } from 'react';
 import axios from 'axios';
+import { GetProjectsQuery } from '@/queries';
 
 type ProjectItemType = {
   id?: string;
@@ -30,29 +31,7 @@ const Context = ({ children }: { children?: ReactNode }) => {
         },
         method: 'post',
         data: {
-          query: `
-            query GetProjects {
-              projects {
-                data {
-                  id
-                  attributes {
-                    name
-                    description
-                    gif {
-                      data {
-                        id
-                        attributes {
-                          name
-                          alternativeText
-                          url
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          `,
+          query: GetProjectsQuery,
         },
       }).then((result) => {
         const projectsArray = result?.data?.data?.projects?.data.map(
